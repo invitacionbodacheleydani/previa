@@ -335,7 +335,7 @@ html.cerrada .contenido{display:none}
       <div class="interior" aria-hidden="true">
         <img src="img/interior.webp" alt="" width="1024" height="1536" fetchpriority="high">
         <div class="tarjeta general" id="tarjeta">
-          <p class="t-nom" data-n="saludo">Muchachos,</p>
+          <p class="t-nom" data-n="saludo">Caballeros,</p>
           <p class="t-lin" data-n="guarde">les guardé uno a&nbsp;cada&nbsp;uno.</p>
           <p class="t-pie"><span data-n="cuento">Abajo les cuento</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1.5v8.5M2.5 6.6 6 10l3.5-3.4" fill="none" stroke="currentColor" stroke-width="1"/></svg></p>
         </div>
@@ -347,7 +347,7 @@ html.cerrada .contenido{display:none}
           <span class="placa largo" id="placa" aria-hidden="true">
             <span class="placa-sup">La previa de Dani</span>
             <span class="placa-med">Reservado para</span>
-            <span class="placa-nom" data-n="placa">los muchachos</span>
+            <span class="placa-nom" data-n="placa">los caballeros</span>
           </span>
         </span>
         <span class="tapa-canto" aria-hidden="true"></span>
@@ -371,8 +371,8 @@ html.cerrada .contenido{display:none}
     </section>
 
     <section class="seccion carta" aria-label="La invitación">
-      <p class="saludo" data-n="saludo" data-revelar>Muchachos,</p>
-      <p class="cuerpo" data-revelar>Antes de dar el sí quiero pasar las últimas horas de soltero con ustedes. Picamos unos bocaditos, brindamos con el Glenfiddich 15 <span data-n="eligio">que eligió papá</span>, prendemos unos habanos, nos ponemos el traje y de ahí vamos juntos al civil.</p>
+      <p class="saludo" data-n="saludo" data-revelar>Caballeros,</p>
+      <p class="cuerpo" data-revelar>Antes de dar el sí quiero pasar las últimas horas de soltero con ustedes. Picamos unos bocaditos, brindamos con <span data-n="eligio">el whisky de LK</span>, prendemos unos habanos y nos ponemos el traje juntos, hasta que arranque el civil.</p>
       <div class="filete" aria-hidden="true"><svg viewBox="0 0 10 10"><path d="M5 0 10 5 5 10 0 5z" fill="currentColor"/></svg></div>
     </section>
 
@@ -387,7 +387,7 @@ html.cerrada .contenido{display:none}
           <p class="etq-edad"><small>Añejado</small><b>33</b><small>años</small></p>
           <p class="etq-barrica">Barrica Nº 24.10.26</p>
           <p class="etq-lugar">Destilado en Casa Puente,<br>Mariano Roque Alonso</p>
-          <p class="etq-para">Embotellado para<span data-n="embotellado">los muchachos</span></p>
+          <p class="etq-para">Embotellado para<span data-n="embotellado">los caballeros</span></p>
         </figcaption>
       </figure>
     </section>
@@ -400,8 +400,8 @@ html.cerrada .contenido{display:none}
       </figure>
       <dl class="notas">
         <div class="nota" data-revelar><dt>Nariz</dt><dd>Bocaditos, cuero, madera y un novio que se hace el tranquilo.</dd></div>
-        <div class="nota" data-revelar><dt>Boca</dt><dd>Glenfiddich 15, <span data-n="boca">el que eligió papá</span>. Habanos sin apuro y anécdotas de las buenas.</dd></div>
-        <div class="nota" data-revelar><dt>Final</dt><dd>Largo y elegante: el traje puesto, las fotos y todos juntos al civil.</dd></div>
+        <div class="nota" data-revelar><dt>Boca</dt><dd><span data-n="boca">El whisky de LK</span>. Habanos sin apuro y anécdotas de las buenas.</dd></div>
+        <div class="nota" data-revelar><dt>Final</dt><dd>Largo y elegante: el traje puesto, las fotos y el civil ahí mismo.</dd></div>
       </dl>
     </section>
 
@@ -476,7 +476,7 @@ html.cerrada .contenido{display:none}
     if (nombre.length <= 9) document.getElementById('placa').classList.remove('largo');
     if (nombre.length > 9) document.getElementById('tarjeta').classList.add('largo');
   }
-  if (papi) { poner('eligio', 'que elegiste vos'); poner('boca', 'el que elegiste vos'); }
+  if (papi) { poner('eligio', 'tu whisky'); poner('boca', 'Tu whisky'); }
 
   /* Abrir la tapa y arrancar la música (play dentro del mismo toque, para iPhone) */
   var audio = document.getElementById('musica');
