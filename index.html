@@ -3,27 +3,787 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>La previa de Dani · 3 opciones</title>
-<meta name="robots" content="noindex">
+<title>La previa de Dani</title>
+<meta name="description" content="Sábado 24 de octubre, desde las 15:00 en Casa Puente">
+<meta name="theme-color" content="#0b1734">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La previa de Dani">
+<meta property="og:description" content="Sábado 24 de octubre, desde las 15:00 en Casa Puente">
+<meta property="og:image" content="https://invitacionbodacheleydani.github.io/previa/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://invitacionbodacheleydani.github.io/previa/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fonts/yesteryear.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/caslon.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/tapa.webp" as="image" type="image/webp">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-  :root { color-scheme: dark; }
-  body { margin: 0; background: #111; color: #eee; font: 15px/1.45 Georgia, 'Times New Roman', serif; }
-  main { max-width: 480px; margin: 0 auto; padding: 28px 18px 40px; }
-  h1 { font-weight: normal; font-size: 26px; margin: 0 0 4px; letter-spacing: .02em; }
-  p.sub { margin: 0 0 22px; color: #aaa; font-size: 14px; }
-  a.op { display: block; text-decoration: none; color: inherit; margin: 0 0 18px; border-radius: 10px; overflow: hidden; background: #1c1c1c; border: 1px solid #2c2c2c; }
-  a.op img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; object-fit: cover; }
-  a.op div { padding: 12px 14px 14px; }
-  a.op b { display: block; font-size: 18px; font-weight: normal; }
-  a.op span { color: #aaa; font-size: 13.5px; }
+@font-face{font-family:"Yesteryear";src:url("fonts/yesteryear.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Jost";src:url("fonts/jost.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Libre Caslon Text";src:url("fonts/caslon.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Libre Caslon Text";src:url("fonts/caslon-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Libre Caslon Text";src:url("fonts/caslon-bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  --noche:#0c1a3a;
+  --noche-luz:#1a2d5a;
+  --noche-hondo:#070f26;
+  --tinta:#14213f;
+  --tinta-suave:#4a5471;
+  --crema:#efe6cf;
+  --crema-luz:#f6efdc;
+  --crema-texto:#f2e7cc;
+  --crema-tenue:rgba(242,231,204,.72);
+  --ambar:#d9843a;
+  --ambar-claro:#eaa660;
+  --ambar-hondo:#94491a;
+  --guion:"Yesteryear","Brush Script MT",cursive;
+  --palo:"Jost","Futura","Century Gothic",system-ui,sans-serif;
+  --letra:"Libre Caslon Text","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --suave:cubic-bezier(.16,1,.3,1);
+  --firme:cubic-bezier(.32,.72,0,1);
+  --luz-tocadiscos:brightness(.9) saturate(.92);
+  --luz-brazo:brightness(.84) sepia(.16) saturate(.95);
+  --luz-disco:brightness(.9);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scrollbar-color:var(--ambar) var(--noche-hondo)}
+body{
+  margin:0;min-height:100%;
+  background:var(--noche-hondo) radial-gradient(ellipse 120% 70% at 50% 0%,#14264f 0%,var(--noche-hondo) 62%) fixed;
+  color:var(--crema-texto);font-family:var(--letra);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+::selection{background:var(--ambar);color:var(--tinta)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ambar-claro);outline-offset:3px;border-radius:4px}
+[hidden]{display:none!important}
+
+/* grano de impresión, fijo y sin eventos */
+body::after{
+  content:"";position:fixed;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:40;opacity:.09;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/></filter><rect width='180' height='180' filter='url(%23g)'/></svg>");
+}
+
+.pagina{
+  position:relative;max-width:480px;margin:0 auto;overflow-x:hidden;overflow-x:clip;
+  background:var(--noche);
+  box-shadow:0 0 0 1px rgba(255,255,255,.03),0 30px 90px -20px rgba(0,0,0,.6);
+}
+
+/* ============ ESCENA: la mesa con el tocadiscos ============ */
+.escena{
+  --U:min(calc(100vw - 28px),440px,50vh);
+  --top:calc(env(safe-area-inset-top,0px) + var(--U) * .07);
+  position:relative;overflow:hidden;
+  height:calc(var(--top) + var(--U) * 1.676 + 166px);
+  background:
+    radial-gradient(ellipse 85% 48% at 50% 24%,rgba(64,96,170,.30) 0%,rgba(64,96,170,0) 70%),
+    radial-gradient(ellipse 120% 80% at 50% 40%,var(--noche-luz) 0%,var(--noche) 52%,#091430 100%);
+}
+/* svh solo donde existe: una variable con un valor inválido rompería todas las medidas */
+@supports (height:1svh){
+  .escena{--U:min(calc(100vw - 28px),440px,50svh)}
+}
+html.js:not(.abierta) .escena{height:100vh;height:100svh}
+@media (min-width:520px){
+  html.js:not(.abierta) .escena{
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26px,#000 calc(100% - 26px),transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#000 26px,#000 calc(100% - 26px),transparent 100%);
+  }
+}
+html.js:not(.abierta) body{overflow:hidden}
+
+.mesa{
+  position:absolute;left:50%;top:var(--top);
+  width:var(--U);height:calc(var(--U) * 1.70 + 90px);margin-left:calc(var(--U) * -.5);
+  transform-origin:0 0;
+}
+html.js .mesa{opacity:0}
+html.js .mesa.lista{opacity:1;transition:opacity .9s var(--suave)}
+
+.tocadiscos{position:absolute;left:0;top:0;width:100%;height:calc(var(--U) * .85254)}
+.tocadiscos img{width:100%;height:100%;filter:var(--luz-tocadiscos) drop-shadow(0 calc(var(--U) * .012) calc(var(--U) * .012) rgba(2,6,20,.55)) drop-shadow(0 calc(var(--U) * .045) calc(var(--U) * .05) rgba(2,6,20,.55))}
+
+/* disco */
+.disco{
+  position:absolute;z-index:2;
+  left:calc(var(--U) * .06052);top:calc(var(--U) * .05112);
+  width:calc(var(--U) * .68136);height:calc(var(--U) * .68136);
+  border-radius:50%;
+}
+.disco-sombra{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;pointer-events:none}
+.disco-sombra.baja{box-shadow:0 1px 2px rgba(0,0,0,.55),0 3px 8px rgba(0,0,0,.35)}
+.disco-sombra.alta{box-shadow:0 calc(var(--U) * .03) calc(var(--U) * .07) rgba(1,4,15,.6),0 calc(var(--U) * .012) calc(var(--U) * .02) rgba(1,4,15,.45);opacity:0}
+html.js:not(.abierta) .disco-sombra.alta{opacity:1}
+html.js:not(.abierta) .disco{animation:asoma 3.4s cubic-bezier(.45,0,.25,1) 1.6s infinite}
+@keyframes asoma{0%,62%,100%{translate:0 0}31%{translate:calc(var(--U) * .022) calc(var(--U) * -.001)}}
+html.js:not(.abierta) .disco-sombra.baja{opacity:0}
+.disco-giro{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;will-change:transform;filter:var(--luz-disco)}
+.disco-giro img{position:absolute;left:-.23%;top:-.23%;width:100.46%;height:100.46%;max-width:none}
+.etiqueta{position:absolute;left:32.4%;top:32.4%;width:35.2%;height:35.2%;overflow:visible}
+.disco-brillo{
+  position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;pointer-events:none;mix-blend-mode:screen;
+  background:conic-gradient(from 18deg,
+    rgba(255,255,255,0) 0deg,rgba(210,225,255,.13) 16deg,rgba(255,255,255,0) 38deg,
+    rgba(255,255,255,0) 172deg,rgba(210,225,255,.10) 194deg,rgba(255,255,255,0) 218deg,rgba(255,255,255,0) 360deg);
+  -webkit-mask:radial-gradient(circle,transparent 0 35.6%,#000 36.4% 48.6%,transparent 49.6%);
+          mask:radial-gradient(circle,transparent 0 35.6%,#000 36.4% 48.6%,transparent 49.6%);
+}
+
+/* brazo */
+.brazo{
+  position:absolute;z-index:4;pointer-events:none;
+  left:calc(var(--U) * .65245);top:calc(var(--U) * -.03275);
+  width:calc(var(--U) * .44171);height:calc(var(--U) * .66256);
+  transform-origin:50% 22.786%;transform:rotate(-6.62deg);
+}
+.brazo-alza{position:absolute;top:0;right:0;bottom:0;left:0;transform-origin:50% 22.786%}
+.brazo-alza img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;max-width:none}
+.brazo-alza img:not(.brazo-sombra){filter:var(--luz-brazo)}
+.brazo-sombra{filter:brightness(0) blur(2px);opacity:.5;transform:translate(calc(var(--U) * .008),calc(var(--U) * .012))}
+
+/* funda (tapa del LP) */
+.funda{
+  position:absolute;z-index:3;margin:0;
+  left:calc(var(--U) * .14878);top:calc(var(--U) * .9275);
+  width:calc(var(--U) * .70244);height:calc(var(--U) * .70244);
+  --F:calc(var(--U) * .0070244);   /* 1 % del ancho de la funda, sin container queries */
+  transform:rotate(-2.2deg);
+  border-radius:2px;
+  box-shadow:
+    0 1px 1px rgba(1,4,15,.45),
+    0 calc(var(--U) * .016) calc(var(--U) * .03) rgba(1,4,15,.45),
+    0 calc(var(--U) * .06) calc(var(--U) * .12) calc(var(--U) * -.03) rgba(1,4,15,.7);
+}
+.funda>img{width:100%;height:100%;border-radius:inherit}
+.funda::after{
+  content:"";position:absolute;top:0;right:0;bottom:0;left:0;border-radius:inherit;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,248,230,.10),inset 0 1px 0 rgba(255,248,230,.16);
+  background:linear-gradient(118deg,rgba(255,250,235,.10) 0%,rgba(255,250,235,0) 38%,rgba(0,0,0,0) 70%,rgba(0,0,0,.12) 100%);
+}
+.tapa-tipo{position:absolute;left:calc(5.4 * var(--F));top:calc(9.4 * var(--F));width:calc(44 * var(--F));color:var(--crema-texto);pointer-events:none;margin:0}
+.tapa-tipo p{margin:0}
+.tapa-titulo{font:400 calc(22 * var(--F))/.78 var(--guion);letter-spacing:-.01em;text-shadow:0 calc(.4 * var(--F)) calc(1.6 * var(--F)) rgba(3,10,30,.35)}
+.tapa-titulo span{display:block;font-size:calc(7.3 * var(--F));line-height:1;margin:calc(2.6 * var(--F)) 0 0 calc(4.4 * var(--F));letter-spacing:0}
+.tapa-tipo .tapa-linea{margin-top:calc(5.2 * var(--F));padding-top:calc(2.6 * var(--F));border-top:calc(.25 * var(--F)) solid rgba(242,231,204,.38);width:calc(41 * var(--F));font:500 calc(2.55 * var(--F))/1.62 var(--palo);letter-spacing:.12em;text-transform:uppercase;color:var(--crema-texto)}
+.tapa-tipo .tapa-fecha{margin-top:calc(1.8 * var(--F));font:600 calc(2.4 * var(--F))/1.62 var(--palo);letter-spacing:.06em;text-transform:uppercase;color:var(--ambar-claro)}
+.sello{
+  position:absolute;right:calc(4.4 * var(--F));top:calc(4.2 * var(--F));width:calc(22 * var(--F));height:calc(22 * var(--F));border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:radial-gradient(circle at 34% 30%,#efa45d 0%,var(--ambar) 52%,#cd7932 100%);
+  color:var(--tinta);transform:rotate(9deg);
+  box-shadow:0 calc(.5 * var(--F)) calc(.9 * var(--F)) rgba(2,6,20,.45),inset 0 0 0 calc(.7 * var(--F)) rgba(255,240,215,.16);
+}
+.sello small{display:block;font:600 calc(1.9 * var(--F))/1 var(--palo);letter-spacing:.22em;text-transform:uppercase}
+.sello strong{display:block;margin-top:calc(.6 * var(--F));font:400 calc(6.4 * var(--F))/.95 var(--guion);padding:0 calc(1.4 * var(--F))}
+.sello.largo strong{font-size:calc(4.9 * var(--F))}
+
+/* lo que suena */
+.sonando{
+  position:absolute;left:0;right:0;top:calc(var(--U) * 1.676);
+  text-align:center;opacity:0;
+}
+html.abierta .sonando.visible{opacity:1;transition:opacity .9s var(--suave)}
+html:not(.js) .sonando{opacity:1}
+.sonando small{display:flex;align-items:center;justify-content:center;gap:8px;font:600 11px/1 var(--palo);letter-spacing:.32em;text-transform:uppercase;color:var(--ambar-claro)}
+.sonando small i{width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px rgba(234,166,96,.18);transition:opacity .4s}
+.sonando.en-pausa small i{opacity:.35}
+.sonando p{margin:8px 0 2px;font:italic 400 21px/1.2 var(--letra);color:var(--crema-texto)}
+.sonando small span{font:inherit;letter-spacing:inherit;color:inherit;text-transform:inherit}
+.sonando>span{font:400 12.5px/1.2 var(--palo);letter-spacing:.14em;text-transform:uppercase;color:var(--crema-tenue)}
+
+/* penumbra del estado cerrado */
+.penumbra{
+  position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:5;opacity:0;
+  background:radial-gradient(ellipse 74% 46% at var(--px,47%) var(--py,52%),rgba(5,10,26,0) 0%,rgba(5,10,26,.14) 55%,rgba(5,10,26,.8) 100%);
+}
+html.js:not(.abierta) .penumbra{opacity:1}
+
+.pista{
+  position:absolute;left:0;right:0;z-index:6;text-align:center;pointer-events:none;
+  top:calc(100% - 150px);
+  opacity:0;transform:translateY(8px);
+}
+html.js:not(.abierta) .pista.lista{opacity:1;transform:none;transition:opacity 1s .5s var(--suave),transform 1s .5s var(--suave)}
+.pista p{margin:0;font:italic 400 22px/1.25 var(--letra);color:var(--crema-texto)}
+.pista span{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font:600 11.5px/1 var(--palo);letter-spacing:.3em;text-transform:uppercase;color:var(--ambar-claro)}
+.pista svg{width:15px;height:15px}
+.catalogo{
+  position:absolute;left:0;right:0;z-index:6;pointer-events:none;text-align:center;margin:0;
+  bottom:calc(22px + env(safe-area-inset-bottom,0px));
+  font:600 10px/1 var(--palo);letter-spacing:.32em;text-transform:uppercase;color:rgba(242,231,204,.55);
+  opacity:0;
+}
+html.js:not(.abierta) .catalogo.lista{opacity:1;transition:opacity 1.2s .9s var(--suave)}
+html:not(.js) .catalogo,html.abierta .catalogo{display:none}
+html:not(.js) .pista{display:none}
+
+.abrir{
+  position:absolute;top:0;right:0;bottom:0;left:0;z-index:8;width:100%;height:100%;
+  border:0;margin:0;padding:0;background:transparent;cursor:pointer;color:transparent;
+}
+.abrir:focus-visible{outline-offset:-6px}
+html.abierta .abrir,html:not(.js) .abrir{display:none}
+
+/* ============ CONTRATAPA ============ */
+.contratapa{
+  position:relative;z-index:2;
+  margin:0 clamp(10px,3.4vw,16px);
+  padding:34px clamp(22px,7vw,34px) 40px;
+  background-color:var(--crema);
+  background-image:
+    linear-gradient(90deg,rgba(80,58,20,.10),rgba(80,58,20,0) 14px),
+    radial-gradient(ellipse 120% 90% at 50% 40%,rgba(255,255,255,0) 60%,rgba(120,88,40,.10) 100%);
+  color:var(--tinta);
+  border-radius:3px 3px 0 0;
+  box-shadow:0 -1px 0 rgba(255,255,255,.4) inset,0 -18px 40px -18px rgba(1,4,15,.6);
+}
+.contratapa::before{
+  content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply;border-radius:inherit;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .55 0 0 0 0 .47 0 0 0 0 .34 0 0 0 .55 0'/></filter><rect width='220' height='220' filter='url(%23p)'/></svg>");
+}
+html.js:not(.abierta) .contratapa{opacity:0;transform:translateY(40px)}
+html.js.abierta .contratapa{transition:opacity 1s .2s var(--suave),transform 1.2s .2s var(--suave)}
+
+.ct-fila{display:flex;justify-content:space-between;margin:0;font:600 11px/1 var(--palo);letter-spacing:.28em;text-transform:uppercase;color:var(--tinta-suave)}
+.regla{height:5px;border-top:2px solid var(--tinta);border-bottom:1px solid var(--tinta);margin:12px 0 0;opacity:.9}
+.regla.fina{height:0;border-bottom:0;border-top:1px solid rgba(20,33,63,.35);margin:0}
+.ct-titulo{margin:26px 0 0;font:400 clamp(58px,17vw,74px)/.8 var(--guion);color:var(--tinta);letter-spacing:-.01em}
+.ct-titulo span{display:block;font-size:.44em;line-height:1;margin:.25em 0 0 .9em}
+.ct-sub{margin:20px 0 0;font:italic 400 20px/1.3 var(--letra)}
+.ct-lugar{margin:8px 0 0;font:600 11px/1.6 var(--palo);letter-spacing:.24em;text-transform:uppercase;color:var(--ambar-hondo)}
+
+.bloque{margin-top:46px}
+.bloque>h2{
+  display:flex;align-items:center;gap:12px;margin:0 0 20px;
+  font:600 11.5px/1 var(--palo);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta);
+}
+.bloque>h2::after{content:"";flex:1;height:1px;background:rgba(20,33,63,.3)}
+
+.notas .saludo{margin:0 0 12px;font:400 42px/1 var(--guion);color:var(--tinta)}
+.notas p{margin:0 0 16px;font-size:17.5px;line-height:1.66;text-wrap:pretty;hyphens:manual}
+.versal{font-variant:small-caps;letter-spacing:.06em;font-size:1.04em}
+.notas .firma{display:flex;align-items:flex-end;gap:14px;margin:26px 0 0}
+.firma b{font:400 46px/.7 var(--guion);color:var(--tinta)}
+.firma span{font:600 11px/1.5 var(--palo);letter-spacing:.28em;text-transform:uppercase;color:var(--tinta-suave);padding-bottom:4px}
+
+.viñeta{margin:34px auto 0;width:min(62%,250px);mix-blend-mode:multiply}
+.viñeta img{width:100%;height:auto}
+
+.lado{margin:0 0 26px}
+.lado h3{margin:0 0 10px;font:600 11.5px/1 var(--palo);letter-spacing:.32em;text-transform:uppercase;color:var(--ambar-hondo)}
+.temas ol{list-style:none;margin:0;padding:0}
+.temas li{display:grid;grid-template-columns:28px 1fr;column-gap:6px;padding:11px 0 12px;border-bottom:1px solid rgba(20,33,63,.16)}
+.temas li:first-child{border-top:1px solid rgba(20,33,63,.16)}
+.temas .n{font:500 14px/1.5 var(--palo);font-variant-numeric:tabular-nums;color:var(--ambar-hondo);padding-top:3px}
+.temas .t{font:400 19px/1.3 var(--letra)}
+.temas .c{grid-column:2;font:italic 400 15px/1.4 var(--letra);color:var(--tinta-suave);margin-top:2px}
+.cierre .viñeta{margin:0 auto 6px;width:min(46%,190px)}
+
+.ficha dl{margin:0}
+.ficha dl div{padding:12px 0 13px;border-bottom:1px solid rgba(20,33,63,.16)}
+.ficha dl div:first-child{border-top:1px solid rgba(20,33,63,.16)}
+.ficha dt{margin:0 0 4px;font:600 11px/1.4 var(--palo);letter-spacing:.26em;text-transform:uppercase;color:var(--tinta-suave)}
+.ficha dd{margin:0;font-size:18px;line-height:1.45}
+.ficha dd small{display:block;font-size:14.5px;color:var(--tinta-suave)}
+.ficha mark{color:inherit;font-weight:700;background:linear-gradient(transparent 62%,rgba(217,132,58,.38) 62%)}
+
+.acciones{display:grid;gap:12px;margin-top:26px}
+.boton{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:56px;
+  padding:7px 7px 7px 24px;border-radius:999px;text-decoration:none;
+  font:600 13px/1 var(--palo);letter-spacing:.2em;text-transform:uppercase;
+  background:var(--tinta);color:var(--crema-texto);
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 8px 18px -8px rgba(20,33,63,.6);
+  transition:transform .5s var(--firme),box-shadow .5s var(--firme),background-color .4s var(--suave);
+}
+.boton i{
+  display:grid;place-items:center;width:42px;height:42px;border-radius:50%;flex:none;
+  background:var(--ambar);color:var(--tinta);
+  transition:transform .6s var(--firme);
+}
+.boton svg{width:17px;height:17px}
+.boton.claro{background:transparent;color:var(--tinta);box-shadow:inset 0 0 0 1.5px var(--tinta)}
+.boton.claro i{background:var(--tinta);color:var(--crema-texto)}
+.boton:active{transform:scale(.98)}
+@media (hover:hover){
+  .boton:hover{background:#1d2d55}
+  .boton.claro:hover{background:rgba(20,33,63,.06)}
+  .boton:hover i{transform:translate(2px,-1px) scale(1.05)}
+}
+
+.cuenta{
+  margin:48px calc(clamp(22px,7vw,34px) * -1) 0;
+  padding:30px clamp(22px,7vw,34px) 32px;
+  background-color:var(--noche);
+  background-image:radial-gradient(ellipse 90% 120% at 50% 0%,#1b2e5b 0%,var(--noche) 70%);
+  color:var(--crema-texto);text-align:center;position:relative;
+}
+.cuenta h2{margin:0;font:400 34px/1 var(--guion);color:var(--crema-texto)}
+.reloj{display:flex;justify-content:center;gap:clamp(6px,2.6vw,18px);margin:18px 0 0}
+.reloj div{min-width:60px}
+.reloj b{display:block;font:500 clamp(38px,11.5vw,48px)/1 var(--palo);font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--crema-texto)}
+.reloj span{display:block;margin-top:8px;font:600 10.5px/1 var(--palo);letter-spacing:.12em;text-transform:uppercase;color:var(--ambar-claro)}
+.reloj-fin{margin:14px 0 0;font:italic 400 20px/1.3 var(--letra)}
+.cuenta p.nota{margin:16px 0 0;font:italic 400 15px/1.4 var(--letra);color:var(--crema-tenue)}
+
+.cierre{margin-top:44px;text-align:center}
+.cierre p{margin:0;font:400 clamp(34px,11.1vw,46px)/1 var(--guion);color:var(--tinta);white-space:nowrap}
+.cierre small{display:block;margin-top:14px;font:italic 400 15px/1.45 var(--letra);color:var(--tinta-suave);text-wrap:balance}
+.pie{margin:34px 0 0;padding-top:14px;border-top:1px solid rgba(20,33,63,.3);display:flex;justify-content:space-between;gap:10px;font:600 10px/1.5 var(--palo);letter-spacing:.24em;text-transform:uppercase;color:var(--tinta-suave)}
+
+.fondo-final{height:calc(64px + env(safe-area-inset-bottom,0px))}
+
+/* aparición al bajar */
+html.js .revela{opacity:0;transform:translateY(22px)}
+html.js .revela.visto{opacity:1;transform:none;transition:opacity .8s var(--suave),transform .9s var(--suave)}
+
+/* botones de música */
+.musica{
+  position:absolute;z-index:7;left:50%;margin-left:-23px;
+  top:calc(var(--top) + var(--U) * 1.676 + 82px);
+  width:46px;height:46px;border-radius:50%;padding:0;cursor:pointer;
+  display:grid;place-items:center;
+  background:rgba(11,22,50,.9);color:var(--ambar-claro);
+  border:1px solid rgba(242,231,204,.28);
+  box-shadow:0 4px 10px -3px rgba(0,0,0,.55);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  opacity:0;transform:translateY(10px) scale(.9);pointer-events:none;visibility:hidden;
+  transition:opacity .6s var(--suave),transform .6s var(--firme),visibility 0s linear .6s;
+}
+.musica.visible{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition-delay:0s}
+.musica.flota{
+  position:fixed;z-index:30;left:auto;top:auto;margin:0;
+  right:max(14px,calc((100vw - 480px) / 2 + 14px));
+  top:auto;bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:46px;height:46px;
+  border-color:rgba(242,231,204,.55);
+  box-shadow:0 0 0 2.5px rgba(239,230,207,.85),0 8px 18px -4px rgba(1,4,15,.55);
+}
+.musica:active{transform:scale(.94)}
+.musica svg{width:18px;height:18px}
+.musica .ic-seguir{display:none}
+.musica[data-estado="pausa"] .ic-pausa{display:none}
+.musica[data-estado="pausa"] .ic-seguir{display:block}
+.musica::before{
+  content:"";position:absolute;top:-5px;right:-5px;bottom:-5px;left:-5px;border-radius:50%;border:1px solid rgba(234,166,96,.35);
+  animation:onda 2.8s var(--suave) infinite;
+}
+.musica[data-estado="pausa"]::before{animation:none;opacity:0}
+@keyframes onda{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+
+@media (prefers-reduced-motion:reduce){
+  html.js .revela{transform:none}
+  html.js:not(.abierta) .disco{animation:none}
+  .musica::before{animation:none}
+  html.js.abierta .contratapa{transition:opacity .4s linear}
+  html.js:not(.abierta) .contratapa{transform:none}
+}
+@media (min-width:520px){
+  .contratapa{margin:0 16px}
+}
 </style>
 </head>
 <body>
-<main>
-  <h1>La previa de Dani</h1>
-  <p class="sub">Las dos que siguen en pie. Abrilas con el volumen alto.</p>
-  <a class="op" href="1/"><img src="1/og.jpg" alt=""><div><b>1 · Reserva Kemper</b><span>Whisky y habanos: un humidor que se abre.</span></div></a>
-  <a class="op" href="3/"><img src="3/og.jpg" alt=""><div><b>3 · Fly Me to the Moon</b><span>Un disco de los 60 que gira en el tocadiscos.</span></div></a>
-</main>
+<div class="pagina">
+
+  <section class="escena" id="escena" aria-label="El disco de la previa">
+    <div class="mesa" id="mesa">
+      <div class="tocadiscos"><img src="img/tocadiscos.webp" width="1000" height="853" alt="Tocadiscos de los años sesenta, de madera de nogal y aluminio" decoding="async"></div>
+
+      <div class="disco" id="disco">
+        <div class="disco-sombra baja"></div>
+        <div class="disco-sombra alta"></div>
+        <div class="disco-giro" id="discoGiro">
+          <img src="img/disco.webp" width="840" height="840" alt="" decoding="async">
+          <svg class="etiqueta" viewBox="0 0 200 200" aria-hidden="true">
+            <defs>
+              <path id="arcoArriba" d="M 30 100 A 70 70 0 0 1 170 100"/>
+              <path id="arcoAbajo" d="M 21 100 A 79 79 0 0 0 179 100"/>
+            </defs>
+            <circle cx="100" cy="100" r="97.3" fill="none" stroke="#d9843a" stroke-width="15"/>
+            <circle cx="100" cy="100" r="88.2" fill="none" stroke="#14213f" stroke-width=".9"/>
+            <text font-family="Jost, sans-serif" font-weight="600" font-size="13.5" letter-spacing="2.6" fill="#14213f"><textPath href="#arcoArriba" startOffset="50%" text-anchor="middle">DANI Y LOS CABALLEROS</textPath></text>
+            <text x="58" y="96" text-anchor="middle" font-family="Jost, sans-serif" font-weight="600" font-size="8" letter-spacing="2" fill="#14213f">LADO</text>
+            <text x="58" y="120" text-anchor="middle" font-family="Libre Caslon Text, Georgia, serif" font-weight="700" font-size="22" fill="#94491a">A</text>
+            <text x="142" y="105" text-anchor="middle" font-family="Jost, sans-serif" font-weight="600" font-size="14" fill="#14213f">33⅓</text>
+            <text x="142" y="117" text-anchor="middle" font-family="Jost, sans-serif" font-weight="600" font-size="7" letter-spacing="2" fill="#14213f">RPM</text>
+            <circle cx="100" cy="100" r="12.5" fill="none" stroke="#14213f" stroke-width=".7" opacity=".6"/>
+            <text x="100" y="141" text-anchor="middle" font-family="Libre Caslon Text, Georgia, serif" font-style="italic" font-size="10.5" fill="#14213f">La previa del novio</text>
+            <text font-family="Jost, sans-serif" font-weight="600" font-size="7.6" letter-spacing="2.2" fill="#14213f"><textPath href="#arcoAbajo" startOffset="50%" text-anchor="middle">PRV-2410 · ALTA FIDELIDAD</textPath></text>
+          </svg>
+        </div>
+        <div class="disco-brillo"></div>
+      </div>
+
+      <div class="brazo" id="brazo" aria-hidden="true">
+        <div class="brazo-alza" id="brazoAlza">
+          <img class="brazo-sombra" id="brazoSombra" src="img/brazo.webp" width="520" height="780" alt="" decoding="async">
+          <img src="img/brazo.webp" width="520" height="780" alt="" decoding="async">
+        </div>
+      </div>
+
+      <figure class="funda" id="funda">
+        <img src="img/tapa.webp" width="960" height="960" alt="Tapa ilustrada del disco: un hombre de smoking sentado en una luna creciente brinda con un whisky y fuma un habano; abajo, ocho amigos en un puente levantan sus vasos" decoding="async">
+        <figcaption class="tapa-tipo">
+          <p class="tapa-titulo">Dani <span>y los caballeros</span></p>
+          <p class="tapa-linea">La previa del novio<br>En vivo en Casa Puente</p>
+          <p class="tapa-fecha">Sábado 24 de octubre<br>desde las 15:00</p>
+        </figcaption>
+        <div class="sello" id="sello"><small id="selloArriba">Edición de</small><strong id="selloNombre">8 copias</strong></div>
+      </figure>
+
+      <div class="sonando" id="sonando" aria-live="polite">
+        <small><i></i><span id="estadoTexto">Sonando</span></small>
+        <p>Fly Me to the Moon</p>
+        <span>Frank Sinatra</span>
+      </div>
+    </div>
+
+    <div class="penumbra" id="penumbra"></div>
+    <div class="pista" id="pista">
+      <p>Tocá el disco y ponelo a sonar</p>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6"/><path d="M18.2 6.6a7.6 7.6 0 0 1 0 10.8"/></svg>Subí el volumen</span>
+    </div>
+    <p class="catalogo" id="catalogo">Alta fidelidad · 33⅓ rpm · PRV-2410</p>
+    <button class="musica" id="botonMusica" type="button" data-musica data-estado="suena" aria-label="Pausar la música">
+  <svg class="ic-pausa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M9 6.5v11M15 6.5v11"/></svg>
+  <svg class="ic-seguir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 6.2v11.6L18 12z"/></svg>
+    </button>
+    <button class="abrir" type="button" data-abrir aria-label="Sacar el disco de la funda: abre la invitación y empieza la música">Abrir</button>
+  </section>
+
+  <main class="contratapa" id="contratapa">
+    <header>
+      <p class="ct-fila"><span>PRV-2410</span><span>Alta fidelidad</span></p>
+      <div class="regla"></div>
+      <h1 class="ct-titulo">Dani <span>y los caballeros</span></h1>
+      <p class="ct-sub">La previa del novio</p>
+      <p class="ct-lugar">Grabado en vivo en Casa Puente</p>
+    </header>
+
+    <section class="bloque notas revela" aria-labelledby="t-notas">
+      <h2 id="t-notas">Notas de la contratapa</h2>
+      <p class="saludo" id="saludo">Señores,</p>
+      <p><span class="versal">Antes de dar el sí</span> quiero pasar las últimas horas de soltero con ustedes. Picamos unos bocaditos, brindamos con <span class="quien-eligio">el whisky de LK</span>, prendemos <span class="habanos-de">los habanos del tío</span> y nos ponemos el traje juntos, hasta que arranque el civil.</p>
+      <p>Como todo disco en vivo, este se graba una sola vez y sin ensayo.</p>
+      <p class="firma"><b>Dani</b><span>Voz principal</span></p>
+      <figure class="viñeta" aria-hidden="true"><img src="img/whisky.webp" width="560" height="560" alt="" loading="lazy" decoding="async"></figure>
+    </section>
+
+    <section class="bloque temas revela" aria-labelledby="t-temas">
+      <h2 id="t-temas">Lista de temas</h2>
+      <div class="lado">
+        <h3>Lado A</h3>
+        <ol>
+          <li><span class="n">1</span><span class="t">La llegada</span><span class="c">desde las 15:00</span></li>
+          <li><span class="n">2</span><span class="t">Bocaditos</span></li>
+          <li><span class="n">3</span><span class="t" id="temaBrindis">Un brindis con papá</span></li>
+          <li><span class="n">4</span><span class="t" id="temaHabanos">Los habanos del tío</span><span class="c">sin apuro</span></li>
+        </ol>
+      </div>
+      <div class="lado">
+          <h3>Lado B</h3>
+          <ol start="5">
+            <li><span class="n">5</span><span class="t">Nos ponemos el traje</span><span class="c">con ayuda de todos</span></li>
+            <li><span class="n">6</span><span class="t">Las fotos</span><span class="c">con el nudo derecho</span></li>
+            <li><span class="n">7</span><span class="t">Arranca el civil</span><span class="c">ahí mismo, en Casa Puente</span></li>
+          </ol>
+      </div>
+    </section>
+
+    <section class="bloque ficha revela" aria-labelledby="t-ficha">
+      <h2 id="t-ficha">Ficha técnica</h2>
+      <dl>
+        <div><dt>Fecha</dt><dd>Sábado 24 de octubre de 2026</dd></div>
+        <div><dt>Hora</dt><dd>Desde las 15:00</dd></div>
+        <div><dt>Lugar</dt><dd>Casa Puente<small>Av. Paseo de Fátima 464<br>Mariano Roque Alonso</small></dd></div>
+        <div><dt>Bodega</dt><dd>La de LK</dd></div>
+        <div><dt>Humidor</dt><dd id="humidor">El del tío</dd></div>
+        <div><dt>Voz</dt><dd>Dani</dd></div>
+        <div><dt>Coros</dt><dd id="coros">Papi, Tío Eduardo, Andrés, Alex, Diego, Pablo, Mauri y Pombe</dd></div>
+      </dl>
+      <div class="acciones">
+        <a class="boton" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Puente+Avenida+Paseo+de+Fatima+464+Mariano+Roque+Alonso" target="_blank" rel="noopener">Cómo llegar<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></i></a>
+        <a class="boton claro" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Previa+de+Dani&amp;dates=20261024T180000Z/20261024T204000Z&amp;location=Casa+Puente%2C+Av.+Paseo+de+F%C3%A1tima+464%2C+Mariano+Roque+Alonso&amp;details=Previa+del+novio+antes+del+civil" target="_blank" rel="noopener">Agendar<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M8 3.5v4M16 3.5v4M4 10h16"/></svg></i></a>
+      </div>
+    </section>
+
+    <section class="cuenta revela" aria-labelledby="t-cuenta">
+      <h2 id="t-cuenta">La púa baja en</h2>
+      <div class="reloj" id="reloj" role="timer" aria-live="off">
+        <div><b id="r-d">00</b><span>días</span></div>
+        <div><b id="r-h">00</b><span>horas</span></div>
+        <div><b id="r-m">00</b><span>minutos</span></div>
+        <div><b id="r-s">00</b><span>segundos</span></div>
+      </div>
+      <p class="reloj-fin" id="relojFin" hidden>Hoy suena el disco</p>
+      <p class="nota">Sábado 24 de octubre, 15:00</p>
+    </section>
+
+    <section class="cierre revela">
+      <figure class="viñeta" aria-hidden="true"><img src="img/traje.webp" width="560" height="560" alt="" loading="lazy" decoding="async"></figure>
+      <p id="cierre">Nos vemos el sábado</p>
+      <small>Función única.<br>Este disco no tiene reedición.</small>
+    </section>
+
+    <footer class="pie"><span>PRV-2410</span><span>Industria paraguaya</span></footer>
+  </main>
+  <div class="fondo-final"></div>
+</div>
+
+<button class="musica flota" id="botonFlota" type="button" data-musica data-estado="suena" aria-label="Pausar la música">
+  <svg class="ic-pausa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M9 6.5v11M15 6.5v11"/></svg>
+  <svg class="ic-seguir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 6.2v11.6L18 12z"/></svg>
+</button>
+<audio id="musica" src="audio/fly_me_to_the_moon.mp3" preload="none" loop></audio>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(s){ return document.querySelector(s); };
+  var raiz = document.documentElement;
+  var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- a quién va ---------- */
+  var NOMBRES = {papi:'Papi', eduardo:'Tío Eduardo', andres:'Andrés', alex:'Alex', diego:'Diego', pablo:'Pablo', mauri:'Mauri', pombe:'Pombe'};
+  var CORO = ['papi','eduardo','andres','alex','diego','pablo','mauri','pombe'];
+  function llave(t){ return t.toLowerCase().normalize('NFD').replace(/\p{M}/gu,'').replace(/[^a-z]/g,''); }
+  var para = '';
+  try { para = (new URLSearchParams(location.search).get('para') || ''); } catch(e) {}
+  para = para.replace(/[^\p{L}\s'.-]/gu,'').replace(/\s+/g,' ').trim().slice(0,28);
+  var clave = para ? llave(para) : '';
+  var nombre = para ? (NOMBRES[clave] || (para.charAt(0).toUpperCase() + para.slice(1))) : '';
+  var esPapi = clave === 'papi';
+
+  if (nombre) {
+    $('#saludo').textContent = nombre + ',';
+    $('#selloArriba').textContent = 'Copia de';
+    $('#selloNombre').textContent = nombre;
+    if (nombre.length > 7) $('#sello').classList.add('largo');
+    $('#cierre').textContent = 'Nos vemos el sábado';
+  }
+  if (esPapi) {
+    document.querySelector('.quien-eligio').textContent = 'tu whisky';
+    $('#temaBrindis').textContent = 'Un brindis con vos';
+  }
+  if (clave === 'eduardo') {
+    document.querySelector('.habanos-de').textContent = 'tus habanos';
+    $('#temaHabanos').textContent = 'Tus habanos';
+    $('#humidor').textContent = 'El tuyo';
+  }
+  if (NOMBRES[clave]) {
+    var coros = $('#coros'); coros.textContent = '';
+    CORO.forEach(function(k, i){
+      if (i) coros.appendChild(document.createTextNode(i === CORO.length - 1 ? ' y ' : ', '));
+      var n = document.createTextNode(NOMBRES[k]);
+      if (k === clave) { var m = document.createElement('mark'); m.appendChild(n); coros.appendChild(m); }
+      else coros.appendChild(n);
+    });
+  }
+
+  /* ---------- cuenta regresiva ---------- */
+  var OBJETIVO = Date.UTC(2026, 9, 24, 18, 0, 0); // sábado 24-oct-2026 15:00 -03:00
+  function dos(n){ return (n < 10 ? '0' : '') + n; }
+  function contar(){
+    var falta = OBJETIVO - Date.now();
+    if (falta <= 0) { $('#reloj').hidden = true; $('#relojFin').hidden = false; return; }
+    var s = Math.floor(falta / 1000);
+    $('#r-d').textContent = dos(Math.floor(s / 86400));
+    $('#r-h').textContent = dos(Math.floor(s % 86400 / 3600));
+    $('#r-m').textContent = dos(Math.floor(s % 3600 / 60));
+    $('#r-s').textContent = dos(s % 60);
+  }
+  contar(); setInterval(contar, 1000);
+
+  /* ---------- aparición al bajar ---------- */
+  var revelas = document.querySelectorAll('.revela');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    revelas.forEach(function(el){ io.observe(el); });
+  } else revelas.forEach(function(el){ el.classList.add('visto'); });
+
+  /* ---------- geometría de la mesa (en unidades del ancho del tocadiscos) ---------- */
+  var escena = $('#escena'), mesa = $('#mesa'), disco = $('#disco'), giroEl = $('#discoGiro');
+  var brazo = $('#brazo'), alza = $('#brazoAlza'), sombraBrazo = $('#brazoSombra');
+  var pista = $('#pista'), penumbra = $('#penumbra'), sonando = $('#sonando');
+  var musica = $('#musica'), boton = $('#botonMusica'), flota = $('#botonFlota');
+  var botones = [boton, flota];
+  var GIRO_FUNDA = -2.2, CAM_GIRO = 2.2;
+  var JW = 0.70244, D = 0.68136, CX = 0.4012, CY = 0.3918, JX = 0.5, JY = 0.9275 + 0.70244 / 2;
+  var DELTA = JW / 2 - D / 2 + 0.17 * D;          // el disco asoma un 17 % por el costado de la funda
+  var REPOSO = -6.62, TOCANDO = 17.56;           // ángulos del brazo
+  var abierta = false, cam = null;
+
+  function rot(x, y, g){ var r = g * Math.PI / 180, c = Math.cos(r), s = Math.sin(r); return [x * c - y * s, x * s + y * c]; }
+
+  var catalogo = $('#catalogo');
+  function calcular(){
+    var U = mesa.offsetWidth, W = escena.clientWidth, H = escena.clientHeight || window.innerHeight;
+    var ox = mesa.offsetLeft, oy = mesa.offsetTop;
+    var anchoFunda = Math.min((W >= 470 ? 0.76 : 0.8) * W, 0.56 * H, 420);
+    var k = anchoFunda / (JW * U);
+    var mitad = anchoFunda / 2 + 0.02 * anchoFunda;            // media funda, con el giro
+    // de abajo hacia arriba: línea de catálogo, un respiro, la pista y la funda
+    var piso = (catalogo.offsetTop || (H - 34)) - Math.max(26, Math.min(72, 0.075 * H));
+    var gy = piso - (pista.offsetHeight || 58) - 30 - mitad;
+    gy = Math.max(gy, 0.15 * H + mitad);                        // que la funda nunca se suba al borde
+    var gx = W / 2 - 0.05792 * U * k;
+    penumbra.style.setProperty('--px', gx.toFixed(0) + 'px');
+    penumbra.style.setProperty('--py', gy.toFixed(0) + 'px');
+    var j = rot(JX * U, JY * U, CAM_GIRO);
+    var tx = gx - ox - k * j[0], ty = gy - oy - k * j[1];
+    var off = rot(DELTA * U, 0, GIRO_FUNDA);
+    var vx = JX * U + off[0] - CX * U, vy = JY * U + off[1] - CY * U;
+    var sal = rot(0.40 * U, -0.02 * U, GIRO_FUNDA);
+    cam = {
+      U: U, k: k,
+      mesa: 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px) rotate(' + CAM_GIRO + 'deg) scale(' + k.toFixed(4) + ')',
+      dentro: 'translate(' + vx.toFixed(2) + 'px,' + vy.toFixed(2) + 'px)',
+      afuera: 'translate(' + (vx + sal[0]).toFixed(2) + 'px,' + (vy + sal[1]).toFixed(2) + 'px)',
+      pistaTop: gy + mitad + 30
+    };
+  }
+
+  function cerrar(){
+    calcular();
+    mesa.style.transform = cam.mesa;
+    disco.style.transform = cam.dentro;
+    pista.style.top = cam.pistaTop.toFixed(0) + 'px';
+  }
+
+  if (raiz.classList.contains('js')) {
+    cerrar();
+    requestAnimationFrame(function(){ mesa.classList.add('lista'); pista.classList.add('lista'); $('#catalogo').classList.add('lista'); });
+    window.addEventListener('resize', function(){ if (!abierta) cerrar(); });
+  }
+
+  /* ---------- giro del disco ---------- */
+  var giro = null, rampaId = 0;
+  function rampa(desde, hasta, ms, fin){
+    var id = ++rampaId, t0 = performance.now();
+    (function paso(t){
+      if (id !== rampaId) return;
+      var p = Math.min(1, (t - t0) / ms);
+      var e = hasta > desde ? 1 - Math.pow(1 - p, 3) : 1 - Math.pow(1 - p, 2);
+      giro.playbackRate = Math.max(0.0001, desde + (hasta - desde) * e);
+      if (p < 1) requestAnimationFrame(paso); else if (fin) fin();
+    })(t0);
+  }
+  function arrancarDisco(ms){
+    if (quieto) return;
+    if (!giro) { giro = giroEl.animate([{transform:'rotate(0deg)'},{transform:'rotate(360deg)'}], {duration:1800, iterations:Infinity}); giro.playbackRate = 0.0001; }
+    giro.play();
+    rampa(giro.playbackRate, 1, ms);
+  }
+  function frenarDisco(){
+    if (!giro) return;
+    rampa(giro.playbackRate, 0.0001, 1300, function(){ giro.pause(); });
+  }
+
+  /* ---------- brazo ---------- */
+  function brazoA(angulo, ms, demora){
+    return brazo.animate([{transform:getComputedStyle(brazo).transform}, {transform:'rotate(' + angulo + 'deg)'}],
+      {duration:ms, delay:demora || 0, easing:'cubic-bezier(.45,0,.18,1)', fill:'forwards'});
+  }
+  function levantar(arriba, ms, demora){
+    var u = mesa.offsetWidth;
+    var bajo = {a:'scale(1)', s:'translate(' + (u * .008).toFixed(1) + 'px,' + (u * .012).toFixed(1) + 'px)', o:.5};
+    var alto = {a:'scale(1.03)', s:'translate(' + (u * .022).toFixed(1) + 'px,' + (u * .034).toFixed(1) + 'px)', o:.32};
+    var de = arriba ? bajo : alto, a = arriba ? alto : bajo;
+    var op = {duration:ms, delay:demora || 0, easing:'cubic-bezier(.3,.7,.2,1)', fill:'forwards'};
+    alza.animate([{transform:de.a}, {transform:a.a}], op);
+    sombraBrazo.animate([{transform:de.s, opacity:de.o}, {transform:a.s, opacity:a.o}], op);
+  }
+
+  /* ---------- abrir: sale de la funda, gira, baja la púa ---------- */
+  function abrir(){
+    if (abierta) return;
+    abierta = true;
+    // play() va dentro del mismo toque (iPhone), pero en silencio: la canción se oye recién cuando baja la púa
+    musica.muted = true;
+    var p = musica.play();
+    if (p && p.catch) p.catch(function(){
+      musica.muted = false;
+      marcarBoton(false);
+      setTimeout(function(){ levantar(true, 260, 0); frenarDisco(); }, 1800);
+    });
+    calcular();
+    raiz.classList.add('abierta');
+    var r = quieto ? 0.01 : 1;
+    pista.style.transition = 'opacity .25s ease-out'; pista.style.opacity = '0';
+
+    mesa.animate([{transform:cam.mesa}, {transform:'none'}], {duration:1050 * r, delay:220 * r, easing:'cubic-bezier(.62,0,.18,1)', fill:'backwards'});
+    penumbra.animate([{opacity:1}, {opacity:0}], {duration:900 * r, delay:200 * r, easing:'ease-out', fill:'backwards'});
+    disco.animate([
+      {transform:cam.dentro, offset:0, easing:'cubic-bezier(.3,0,.2,1)'},
+      {transform:cam.afuera, offset:.34, easing:'cubic-bezier(.45,0,.25,1)'},
+      {transform:'translate(0,0) scale(1.035)', offset:.84, easing:'cubic-bezier(.3,.6,.25,1)'},
+      {transform:'none', offset:1}
+    ], {duration:1300 * r, easing:'linear', fill:'backwards'});
+    disco.querySelector('.alta').animate([{opacity:1},{opacity:1, offset:.8},{opacity:0}], {duration:1300 * r, fill:'backwards'});
+    disco.querySelector('.baja').animate([{opacity:0},{opacity:0, offset:.8},{opacity:1}], {duration:1300 * r, fill:'backwards'});
+    mesa.style.transform = ''; disco.style.transform = '';   // las animaciones sostienen el punto de partida
+
+    setTimeout(function(){ arrancarDisco(1100); }, 1050 * r);
+    levantar(true, 180 * r, 820 * r);
+    brazoA(TOCANDO, 520 * r, 900 * r);
+    levantar(false, 260 * r, 1440 * r);
+    setTimeout(function(){                        // la púa toca el disco: arranca la canción desde el principio
+      try { musica.currentTime = 0; } catch(e) {}
+      musica.muted = false;
+    }, 1440 * r);
+    setTimeout(function(){
+      sonando.classList.add('visible');
+      boton.classList.add('visible');
+      vigilarBoton();
+    }, 1500 * r);
+  }
+  document.querySelector('[data-abrir]').addEventListener('click', abrir);
+
+  /* ---------- pausar / seguir ---------- */
+  function marcarBoton(suena){
+    $('#estadoTexto').textContent = suena ? 'Sonando' : 'En pausa';
+    sonando.classList.toggle('en-pausa', !suena);
+    botones.forEach(function(b){
+      b.setAttribute('data-estado', suena ? 'suena' : 'pausa');
+      b.setAttribute('aria-label', suena ? 'Pausar la música' : 'Seguir con la música');
+    });
+  }
+  function vigilarBoton(){
+    if (!('IntersectionObserver' in window)) { flota.classList.add('visible'); return; }
+    // el flotante aparece solo cuando el botón de la escena ya quedó arriba (no cuando todavía está abajo)
+    new IntersectionObserver(function(es){
+      var e = es[0];
+      flota.classList.toggle('visible', !e.isIntersecting && e.boundingClientRect.top < 0);
+    }, {threshold:0}).observe(boton);
+  }
+  function alternar(){
+    if (musica.paused) {
+      var p = musica.play();
+      if (p && p.catch) p.catch(function(){});
+      marcarBoton(true);
+      arrancarDisco(900);
+      levantar(false, 300, 500);
+    } else {
+      musica.pause();
+      marcarBoton(false);
+      levantar(true, 260, 0);
+      frenarDisco();
+    }
+  }
+  botones.forEach(function(b){ b.addEventListener('click', alternar); });
+  musica.addEventListener('pause', function(){ if (abierta) marcarBoton(false); });
+  musica.addEventListener('play', function(){ marcarBoton(true); });
+})();
+</script>
 </body>
 </html>
